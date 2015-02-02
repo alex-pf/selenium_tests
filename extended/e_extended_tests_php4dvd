@@ -8,12 +8,9 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="e1_login.tif">e1 вход под админом</a></td></tr>
-<tr><td><a href="e2_add2users.tif">e2 добавление 2 пользователей</a></td></tr>
-<tr><td><a href="e3_add_dvd.tif">e3 добавление фильма</a></td></tr>
-<tr><td><a href="e4_edit2users.tif">e4 редактирование двух пользователей</a></td></tr>
-<tr><td><a href="e5_rm_dvd.tif">e5 удаление фильма</a></td></tr>
-<tr><td><a href="e6_drop2users.tif">e6 удаление 2 пользователей</a></td></tr>
+<tr><td><a href="e1_login.tif">e1 вход под админом,  выход</a></td></tr>
+<tr><td><a href="e2_users.tif">e2 добавление, редактирование, удаление пользователей</a></td></tr>
+<tr><td><a href="e3_dvd.tif">e3 добавление, удаление фильма</a></td></tr>
 <tr><td><a href="e7_location_on_loginform.tif">e7 смена локации на форме входа</a></td></tr>
 <tr><td><a href="e8_simple_search.tif">e8 удачный поиск</a></td></tr>
 <tr><td><a href="eb1_login.tif">eb1 вход, не верный пароль </a></td></tr>
