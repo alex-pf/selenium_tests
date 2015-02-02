@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>add2users</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">add2users</td></tr>
+</thead><tbody>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ed@ed.ru</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=gu@gu.ru</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>ed</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>ed@ed.ru</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>ed</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>ed</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=permission</td>
+	<td>label=Editor</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[2]/td[3]/a</td>
+	<td>ed@ed.ru</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[2]/td[4]</td>
+	<td>Editor</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>gu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>gu@gu.ru</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>gu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>gu</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td[3]/a</td>
+	<td>gu@gu.ru</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td[4]</td>
+	<td>Guest (view only)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to log out?</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
