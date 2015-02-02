@@ -11,6 +11,7 @@
 <thead>
 <tr><td rowspan="1" colspan="3">-simple_search</td></tr>
 </thead><tbody>
+<!--Тест не выполняется, причина не локализована-->
 <tr>
 	<td>open</td>
 	<td>/php4dvd/</td>
@@ -61,7 +62,6 @@
 	<td>Are you sure you want to log out?</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

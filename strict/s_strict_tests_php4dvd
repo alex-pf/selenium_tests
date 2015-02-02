@@ -8,10 +8,10 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="login.tif">login</a></td></tr>
-<tr><td><a href="add_dvd.tif">add_dvd</a></td></tr>
-<tr><td><a href="rm_dvd.tif">rm_dvd</a></td></tr>
-<tr><td><a href="logaut.tif">logaut</a></td></tr>
+<tr><td><a href="s1_login.tif">s1 вход</a></td></tr>
+<tr><td><a href="s2_add_dvd.tif">s2 добавление фильма</a></td></tr>
+<tr><td><a href="s3_rm_dvd.tif">s3 удаление фильма</a></td></tr>
+<tr><td><a href="s4_logaut.tif">s4 выход</a></td></tr>
 </tbody></table>
 </body>
 </html>

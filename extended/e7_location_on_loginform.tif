@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost/" />
-<title>login_bad</title>
+<title>location_on_loginform</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">login_bad</td></tr>
+<tr><td rowspan="1" colspan="3">location_on_loginform</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -17,24 +17,44 @@
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=username</td>
-	<td>admin</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=password</td>
-	<td>qqq</td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>name=submit</td>
+	<td>link=Nederlands</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>css=td.error</td>
-	<td>Incorrect user name or password</td>
+	<td>//h1</td>
+	<td>Mijn verzameling</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td</td>
+	<td>Gebruikersnaam</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[2]/td</td>
+	<td>Wachtwoord</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=English</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//h1</td>
+	<td>My collection</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td</td>
+	<td>User name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[2]/td</td>
+	<td>Password</td>
 </tr>
 
 </tbody></table>
