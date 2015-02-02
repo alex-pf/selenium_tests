@@ -11,6 +11,8 @@
 <thead>
 <tr><td rowspan="1" colspan="3">logaut</td></tr>
 </thead><tbody>
+<!--Проверка функционала выхода-->
+<!--На момент начала теста мы должны быть авторизованы под admin-->
 <tr>
 	<td>open</td>
 	<td>/php4dvd/</td>
@@ -21,6 +23,7 @@
 	<td>link=My profile</td>
 	<td></td>
 </tr>
+<!--Убедились - мы авторизованы под admin-->
 <tr>
 	<td>assertText</td>
 	<td>//h2</td>
@@ -36,7 +39,6 @@
 	<td>Are you sure you want to log out?</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

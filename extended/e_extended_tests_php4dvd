@@ -16,10 +16,10 @@
 <tr><td><a href="e6_drop2users.tif">e6 удаление 2 пользователей</a></td></tr>
 <tr><td><a href="e7_location_on_loginform.tif">e7 смена локации на форме входа</a></td></tr>
 <tr><td><a href="e8_simple_search.tif">e8 удачный поиск</a></td></tr>
-<tr><td><a href="e9_simple_search.tif">e9 неудачный поиск</a></td></tr>
 <tr><td><a href="eb1_login.tif">eb1 вход, не верный пароль </a></td></tr>
 <tr><td><a href="eb2_login.tif">eb2 вход, не уществующий пользователь</a></td></tr>
 <tr><td><a href="eb3_login.tif">eb3 вход, пустые поля</a></td></tr>
+<tr><td><a href="e9_simple_search.tif">e9 неудачный поиск</a></td></tr>
 </tbody></table>
 </body>
 </html>

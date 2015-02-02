@@ -11,6 +11,8 @@
 <thead>
 <tr><td rowspan="1" colspan="3">rm_dvd</td></tr>
 </thead><tbody>
+<!--Проверка функционала удаления фильма из коллекции-->
+<!--До начала теста мы должны быть авторизованы, фильм должен быть в коллекции, начало теста на домашней странице-->
 <tr>
 	<td>open</td>
 	<td>/php4dvd/</td>
@@ -26,16 +28,19 @@
 	<td>css=img[alt=&quot;Remove&quot;]</td>
 	<td></td>
 </tr>
+<!--Подтвердили что хотим удалить фильм-->
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
+<!--Вернулись на домашнюю страницу-->
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Home</td>
 	<td></td>
 </tr>
+<!--Убедились - фильмов в коллекции нет, обновили данные, проверили ещё раз-->
 <tr>
 	<td>assertNotElementIndex</td>
 	<td>//div[@id='results']/a/div</td>

@@ -11,6 +11,8 @@
 <thead>
 <tr><td rowspan="1" colspan="3">add_dvd</td></tr>
 </thead><tbody>
+<!--Проверка функционала добавления фильма в коллекцию-->
+<!--К началу теста мы должны быть авторизованы и на домашней странице-->
 <tr>
 	<td>open</td>
 	<td>/php4dvd/</td>
@@ -21,6 +23,7 @@
 	<td>css=img[alt=&quot;Add movie&quot;]</td>
 	<td></td>
 </tr>
+<!--Ищем фильм в базе-->
 <tr>
 	<td>type</td>
 	<td>id=imdbsearch</td>
@@ -36,6 +39,7 @@
 	<td>link=Space</td>
 	<td></td>
 </tr>
+<!--Выбрали фильм и сохранили-->
 <tr>
 	<td>click</td>
 	<td>css=img[alt=&quot;Save&quot;]</td>
@@ -46,25 +50,23 @@
 	<td>//div[@id='movie']/div[2]/h2</td>
 	<td>Space (2001)</td>
 </tr>
+<!--Переходим на домашнюю страницу-->
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Home</td>
 	<td></td>
 </tr>
+<!--Убедились - появилась плашка с фильмом-->
 <tr>
 	<td>assertElementPresent</td>
 	<td>//div[@id='results']/a/div</td>
 	<td></td>
 </tr>
+<!--Убедились - название фильма соответствует-->
 <tr>
 	<td>assertText</td>
 	<td>//a/div/div[2]</td>
 	<td>Space</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Home</td>
-	<td></td>
 </tr>
 </tbody></table>
 </body>
