@@ -11,7 +11,7 @@
 <thead>
 <tr><td rowspan="1" colspan="3">-simple_search</td></tr>
 </thead><tbody>
-<!--Тест не выполняется, причина не локализована-->
+<!--Тест не выполняется. Проблема описана в report_e9.txt-->
 <tr>
 	<td>open</td>
 	<td>/php4dvd/</td>
