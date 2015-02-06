@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://plodorod2.ru/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Редактируем профиль пользователя-->
+<tr>
+	<td>open</td>
+	<td>http://plodorod2.ru</td>
+	<td></td>
+</tr>
+<!--Зашли под test1-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Написать сообщение</td>
+	<td></td>
+</tr>
+<!--Пишем сообщение для test2-->
+<tr>
+	<td>type</td>
+	<td>id=edit-recipient</td>
+	<td>test2</td>
+</tr>
+<!--В переменную Т поместили текущее время-->
+<tr>
+	<td>store</td>
+	<td>javascript{Date()}</td>
+	<td>T</td>
+</tr>
+<!--Тема сообщения - текущее время (Т)-->
+<tr>
+	<td>type</td>
+	<td>id=edit-subject</td>
+	<td>${T}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-value</td>
+	<td>Приветствую тебя, брат мой, робот!</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//h1</td>
+	<td>${T}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Выйти</td>
+	<td></td>
+</tr>
+<!--Зашли под test2-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Перешли к сообщениям-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']/div/div/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<!--Убедились, что есть новое-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/span</td>
+	<td>новое</td>
+</tr>
+<!--Убедились, что заголовок сообщения = Т-->
+<tr>
+	<td>assertText</td>
+	<td>//td[2]/a</td>
+	<td>${T}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//h1</td>
+	<td>${T}</td>
+</tr>
+<!--Поместили в Т2 текущее время-->
+<tr>
+	<td>store</td>
+	<td>javascript{Date()}</td>
+	<td>T2</td>
+</tr>
+<!--Пишем ответное сообщение, содержащее Т2-->
+<tr>
+	<td>type</td>
+	<td>id=edit-body-value</td>
+	<td>И я тебя приветствую в ${T2}</td>
+</tr>
+<!--Отправили-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Выйти</td>
+	<td></td>
+</tr>
+<!--Зашли под test1-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Перешли к сообщениям-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']/div/div/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<!--Убедились, что есть новое-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/span</td>
+	<td>новое</td>
+</tr>
+<!--Пишем ответное сообщение, содержащее Т2-->
+<tr>
+	<td>assertText</td>
+	<td>//td[2]/a</td>
+	<td>${T}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//h1</td>
+	<td>${T}</td>
+</tr>
+<!--Убедились, что текст сообщения соответствует отправленному-->
+<tr>
+	<td>assertText</td>
+	<td>//div[3]/div[2]/div[2]/p</td>
+	<td>И я тебя приветствую в ${T2}</td>
+</tr>
+<!--Ушли-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Выйти</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://plodorod2.ru/" />
+<title>p2 Редактирование профиля</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">p2 Редактирование профиля</td></tr>
+</thead><tbody>
+<!--Редактируем профиль пользователя-->
+<tr>
+	<td>open</td>
+	<td>http://plodorod2.ru</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Моя учетная запись</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Редактировать</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>//div[@id='field-addres-add-more-wrapper']/div/label</td>
+	<td></td>
+</tr>
+<!--Меняем номер дома-->
+<tr>
+	<td>type</td>
+	<td>id=edit-field-addres-und-0-value</td>
+	<td>Исакиевская 202</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Просмотр</td>
+	<td></td>
+</tr>
+<!--Проверяем, сто номер дома изменился-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='block-system-main']/div/div/div/div[2]/div</td>
+	<td>Исакиевская 202</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Редактировать</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>//div[@id='field-addres-add-more-wrapper']/div/label</td>
+	<td></td>
+</tr>
+<!--Возвращаем старый номер дома-->
+<tr>
+	<td>type</td>
+	<td>id=edit-field-addres-und-0-value</td>
+	<td>Исакиевская 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Просмотр</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='block-system-main']/div/div/div/div[2]/div</td>
+	<td>Исакиевская 2</td>
+</tr>
+<!--Уходим-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Выйти</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
