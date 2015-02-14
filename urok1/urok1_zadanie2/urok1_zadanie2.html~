@@ -8,12 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="prepare.html">Prepare</a></td></tr>
-<tr><td><a href="search.html">Search</a></td></tr>
-<tr><td><a href="trimming.html">Trimming</a></td></tr>
-<tr><td><a href="search_in_imdb.html">SearchInImdb</a></td></tr>
-<tr><td><a href="search_in_imdb_bed.html">SearchInImdbBed</a></td></tr>
-<tr><td><a href="Logaut.html">Logaut</a></td></tr>
+<tr><td><a href="e2_users.html">e2_Добавление, редактирование, удаление пользователей</a></td></tr>
 </tbody></table>
 </body>
 </html>
