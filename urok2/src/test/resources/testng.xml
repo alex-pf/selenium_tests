@@ -15,8 +15,6 @@
 		    <class name="ru.st.selenium.Search"/>
 		    <class name="ru.st.selenium.Trimming"/>
 		    <class name="ru.st.selenium.SearchInImdb"/>
-		    <class name="ru.st.selenium.SearchInImdbBed"/>
-		    <class name="ru.st.selenium.Logaut"/>
 		</classes>
 	</test>  
 </suite>
