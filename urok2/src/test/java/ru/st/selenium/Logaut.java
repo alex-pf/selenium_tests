@@ -2,29 +2,20 @@ package ru.st.selenium;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-import org.junit.*;
+import org.testng.*;
+import org.testng.annotations.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Logaut {
-  private WebDriver driver;
-  private String baseUrl;
+public class Logaut extends ru.st.selenium.pages.TestBase {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
-  @Before
-  public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    baseUrl = "http://localhost/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
   @Test
-  public void testLogaut() throws Exception {
-    // Проверка функционала выхода
+  public void testLogaut() throws Exception {    // Проверка функционала выхода
     // На момент начала теста мы должны быть авторизованы под admin
     driver.get(baseUrl + "/php4dvd/");
     driver.findElement(By.linkText("My profile")).click();
@@ -34,29 +25,11 @@ public class Logaut {
     assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
   }
 
-  @After
-  public void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
-
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
       return true;
     } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
       return false;
     }
   }

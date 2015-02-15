@@ -2,29 +2,20 @@ package ru.st.selenium;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-import org.junit.*;
+import org.testng.*;
+import org.testng.annotations.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddDvd {
-  private WebDriver driver;
-  private String baseUrl;
+public class AddDvd extends ru.st.selenium.pages.TestBase {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
-  @Before
-  public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    baseUrl = "http://localhost/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
   @Test
-  public void testAddDvd() throws Exception {
-    // Проверка функционала добавления фильма в коллекцию
+  public void testAddDvd() throws Exception {    // Проверка функционала добавления фильма в коллекцию
     // К началу теста мы должны быть авторизованы и на домашней странице
     driver.get(baseUrl + "/php4dvd/");
     driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
@@ -43,29 +34,11 @@ public class AddDvd {
     assertEquals("Space", driver.findElement(By.xpath("//a/div/div[2]")).getText());
   }
 
-  @After
-  public void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
-
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
       return true;
     } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
       return false;
     }
   }
