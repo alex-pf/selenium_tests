@@ -97,6 +97,7 @@ public class ModeUsers extends ru.st.selenium.pages.TestBase {
 
     driver.findElement(By.xpath("//li[4]/a")).click();
     assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
+    driver.quit();
   }
 
   private boolean isElementPresent(By by) {

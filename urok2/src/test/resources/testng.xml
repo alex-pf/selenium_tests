@@ -4,11 +4,8 @@
 	<test name="Test1">
 		<parameter name="path" value="/"/>
 		<classes>
-		    <class name="ru.st.selenium.Login"/>
-		    <class name="ru.st.selenium.AddDvd"/>
-		    <class name="ru.st.selenium.RmDvd"/>
+		    <class name="ru.st.selenium.LoginAddDvdRmDvdLogout"/>
 		    <class name="ru.st.selenium.AddAndRmNewDvd"/>
-		    <class name="ru.st.selenium.Logaut"/>
 		    <class name="ru.st.selenium.ModeUsers"/>
 		    <class name="ru.st.selenium.Prepare"/>
 		    <class name="ru.st.selenium.Search"/>

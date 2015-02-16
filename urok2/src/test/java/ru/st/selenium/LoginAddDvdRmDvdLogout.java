@@ -10,47 +10,42 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddAndRmNewDvd extends ru.st.selenium.pages.TestBase {
+public class LoginAddDvdRmDvdLogout extends ru.st.selenium.pages.TestBase {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
   @Test
-  public void testAddAndRmNewDvd() throws Exception {    driver.get("http://192.168.2.1/php4dvd/");
+  public void testLoginAddDvdRmDvdLogout() throws Exception {    // Простая проверка авторизации
+    driver.get("http://192.168.2.1/php4dvd/");
     driver.findElement(By.id("username")).clear();
     driver.findElement(By.id("username")).sendKeys("admin");
     driver.findElement(By.name("password")).clear();
     driver.findElement(By.name("password")).sendKeys("admin");
     driver.findElement(By.name("submit")).click();
+    driver.findElement(By.linkText("My profile")).click();
+    // Убедились - в h2 страницы есть имя пользователя под которым мы вошли
+    assertEquals("Edit admin", driver.findElement(By.cssSelector("h2")).getText());
+    // Уходим на домашнюю страницу
+    driver.findElement(By.linkText("Home")).click();
     // Проверка функционала добавления фильма в коллекцию
     // К началу теста мы должны быть авторизованы и на домашней странице
     driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
-    // Заполним поля формы
-    driver.findElement(By.name("name")).clear();
-    driver.findElement(By.name("name")).sendKeys("Страшилка");
-    driver.findElement(By.name("aka")).clear();
-    driver.findElement(By.name("aka")).sendKeys("Киношка про тёмную тёную комнату...");
-    driver.findElement(By.name("year")).clear();
-    driver.findElement(By.name("year")).sendKeys("5014");
-    driver.findElement(By.name("duration")).clear();
-    driver.findElement(By.name("duration")).sendKeys("120");
-    driver.findElement(By.name("rating")).clear();
-    driver.findElement(By.name("rating")).sendKeys("5");
-    driver.findElement(By.id("own_no")).click();
-    driver.findElement(By.id("seen_no")).click();
-    driver.findElement(By.id("text_languages_0")).clear();
-    driver.findElement(By.id("text_languages_0")).sendKeys("russian");
-    driver.findElement(By.name("country")).clear();
-    driver.findElement(By.name("country")).sendKeys("russia");
-    // Сохраним фильм
-    driver.findElement(By.id("submit")).click();
-    // Убедимся, что фильм сохранился
-    assertEquals("Страшилка (5014)", driver.findElement(By.cssSelector("h2")).getText());
+    // Ищем фильм в базе
+    driver.findElement(By.id("imdbsearch")).clear();
+    driver.findElement(By.id("imdbsearch")).sendKeys("space");
+    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+    driver.findElement(By.linkText("Space")).click();
+    // Выбрали фильм и сохранили
+    driver.findElement(By.cssSelector("img[alt=\"Save\"]")).click();
+    // Переходим на домашнюю страницу
     driver.findElement(By.linkText("Home")).click();
-    // Убедимся, что фильм виден на главной странице
+    // Убедились - появилась плашка с фильмом
     assertTrue(isElementPresent(By.xpath("//div[@id='results']/a/div")));
-    assertEquals("Страшилка", driver.findElement(By.xpath("//a/div/div[2]")).getText());
+    // Убедились - название фильма соответствует
+    assertEquals("Space", driver.findElement(By.xpath("//a/div/div[2]")).getText());
     // Проверка функционала удаления фильма из коллекции
     // До начала теста мы должны быть авторизованы, фильм должен быть в коллекции, начало теста на домашней странице
+    driver.findElement(By.linkText("Home")).click();
     driver.findElement(By.xpath("//a/div/div/div")).click();
     driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
     // Подтвердили что хотим удалить фильм
@@ -62,7 +57,11 @@ public class AddAndRmNewDvd extends ru.st.selenium.pages.TestBase {
     driver.findElement(By.cssSelector("img[alt=\"Update all\"]")).click();
     // ERROR: Caught exception [ERROR: Unsupported command [getElementIndex | //div[@id='results']/a/div | ]]
     driver.findElement(By.linkText("Home")).click();
-    // Уходим
+    // Проверка функционала выхода
+    // На момент начала теста мы должны быть авторизованы под admin
+    driver.findElement(By.linkText("My profile")).click();
+    // Убедились - мы авторизованы под admin
+    assertEquals("Edit admin", driver.findElement(By.xpath("//h2")).getText());
     driver.findElement(By.linkText("Log out")).click();
     assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
     driver.quit();

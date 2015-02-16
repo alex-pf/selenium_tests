@@ -79,6 +79,7 @@ public class Trimming extends ru.st.selenium.pages.TestBase {
     // Уходим
     driver.findElement(By.linkText("Log out")).click();
     assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
+    driver.quit();
   }
 
   private boolean isElementPresent(By by) {

@@ -29,6 +29,7 @@ public class SearchInImdbBed extends ru.st.selenium.pages.TestBase {
     assertEquals("Космос: Далекие уголки", driver.findElement(By.cssSelector("td.title")).getText());
     driver.findElement(By.linkText("Log out")).click();
     assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
+    driver.quit();
   }
 
   private boolean isElementPresent(By by) {
