@@ -87,8 +87,8 @@
         <env>local</env>
         <user.username></user.username>
         <user.password></user.password>
-        <grid2.hub>http://192.168.2.1:4444/wd/hub</grid2.hub>
-        <site.url>http://192.168.2.1</site.url>
+        <grid2.hub>http://127.0.0.1:4444/wd/hub</grid2.hub>
+        <site.url>http://localhost</site.url>
         <browser.name>firefox</browser.name>
         <browser.version></browser.version>
         <browser.platform></browser.platform>
@@ -103,8 +103,8 @@
         <env>chrome</env>
         <user.username></user.username>
         <user.password></user.password>
-        <grid2.hub>http://192.168.2.1:4444/wd/hub</grid2.hub>
-        <site.url>http://192.168.2.1</site.url>
+        <grid2.hub>http://127.0.0.1:4444/wd/hub</grid2.hub>
+        <site.url>http://localhost</site.url>
         <browser.name>chrome</browser.name>
         <browser.version></browser.version>
         <browser.platform></browser.platform>
@@ -115,8 +115,8 @@
     </profile>
     <profile>
       <id>force-local-driver</id>
-      <properties>
-        <grid2.hub></grid2.hub>
+      <properties>		
+        <grid2.hub> </grid2.hub>
       </properties>
     </profile>
   </profiles>
