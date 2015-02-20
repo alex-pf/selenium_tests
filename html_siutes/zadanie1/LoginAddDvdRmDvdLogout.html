@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>login_good</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">login_good</td></tr>
+</thead><tbody>
+<!--Простая проверка авторизации-->
+<tr>
+	<td>open</td>
+	<td>php4dvd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'profile')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'profile')]</td>
+	<td></td>
+</tr>
+<!--Убедились - в h2 страницы есть имя пользователя под которым мы вошли-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'admin')]</td>
+	<td></td>
+</tr>
+<!--Уходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Проверка функционала добавления фильма в коллекцию-->
+<!--К началу теста мы должны быть авторизованы и на домашней странице-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Ищем фильм в базе-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=imdbsearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=imdbsearch</td>
+	<td>space</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//td[contains(text(),'1985')]/..//a[contains(text(),'Space')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//td[contains(text(),'1985')]/..//a[contains(text(),'Space')]</td>
+	<td></td>
+</tr>
+<!--Выбрали фильм и сохранили-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.button a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.button a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'Space (1985)')]</td>
+	<td></td>
+</tr>
+<!--Переходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Убедились - появилась плашка с фильмом-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<!--Проверка функционала удаления фильма из коллекции-->
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@class='movie_box']/*[contains(text(),'Space')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a[onclick *= 'delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a[onclick *= 'delete']</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Убедились - фильмов в коллекции нет, обновили данные, проверили ещё раз-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//*[@id='content']//a[@href=&quot;./?go=imdbupdate&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@id='content']//a[@href=&quot;./?go=imdbupdate&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotElementIndex</td>
+	<td>//div[@id='results']/a/div</td>
+	<td></td>
+</tr>
+<!--Проверка функционала выхода-->
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'profile')]</td>
+	<td></td>
+</tr>
+<!--Убедились - мы авторизованы под admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=result</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

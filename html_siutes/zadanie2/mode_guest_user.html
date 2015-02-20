@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://192.168.2.2/" />
+<title>modeGuestUser</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">modeGuestUser</td></tr>
+</thead><tbody>
+<!--Объявляем переменняе-->
+<tr>
+	<td>store</td>
+	<td>GuestUser</td>
+	<td>uName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>GuestUser</td>
+	<td>uPass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>GuestUser@mail.ru</td>
+	<td>uMail</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Editor</td>
+	<td>Guest</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>nl_NL</td>
+	<td>uLocale</td>
+</tr>
+<!--Проверка функционала добавления, редактирования, удаления пользователей.-->
+<!--Авторизация-->
+<tr>
+	<td>open</td>
+	<td>/php4dvd/</td>
+	<td></td>
+</tr>
+<!--Вабрали язук приложения-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '${uLocale}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[3]/a</td>
+	<td></td>
+</tr>
+<!--Добавляем пользователя, с правами редаетор-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>xpath=//a[contains(text(),'${uMail}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>${uName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>${uMail}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${uPass}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>${uPass}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=permission</td>
+	<td>label=${uRole}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'${uMail}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//*[contains(text(),'${uRole}')]</td>
+	<td></td>
+</tr>
+<!--Редактируем пользователя-->
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'${uMail}')]/../..//a[contains(@href,&quot;go=user&amp;id&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${uName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>ed@ed.ruuu</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href=&quot;mailto:ed@ed.ruuu&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href=&quot;mailto:ed@ed.ruuu&quot;]/../..//a[contains(@href,&quot;go=user&amp;id&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${uName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>${uMail}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'${uMail}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(text(),'${uMail}')]/../../td[6]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>xpath=//a[contains(text(),'${uMail}')]</td>
+	<td></td>
+</tr>
+<!--Уходим-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, './?lang=en_US')]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

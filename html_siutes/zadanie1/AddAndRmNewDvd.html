@@ -11,9 +11,10 @@
 <thead>
 <tr><td rowspan="1" colspan="3">s2_1_add_dvd</td></tr>
 </thead><tbody>
+<!--Простая проверка авторизации-->
 <tr>
 	<td>open</td>
-	<td>http://192.168.2.1/php4dvd/</td>
+	<td>php4dvd</td>
 	<td></td>
 </tr>
 <tr>
@@ -27,18 +28,27 @@
 	<td>admin</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>name=submit</td>
 	<td></td>
 </tr>
 <!--Проверка функционала добавления фильма в коллекцию-->
-<!--К началу теста мы должны быть авторизованы и на домашней странице-->
 <tr>
-	<td>clickAndWait</td>
-	<td>css=img[alt=&quot;Add movie&quot;]</td>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
 	<td></td>
 </tr>
 <!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
 <tr>
 	<td>type</td>
 	<td>name=name</td>
@@ -86,86 +96,90 @@
 </tr>
 <!--Сохраним фильм-->
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=submit</td>
 	<td></td>
 </tr>
-<!--Убедимся, что фильм сохранился-->
 <tr>
-	<td>assertText</td>
-	<td>css=h2</td>
-	<td>Страшилка (5014)</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Home</td>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'Страшилка (5014)')]</td>
 	<td></td>
 </tr>
-<!--Убедимся, что фильм виден на главной странице-->
-<tr>
-	<td>assertElementPresent</td>
-	<td>//div[@id='results']/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>//a/div/div[2]</td>
-	<td>Страшилка</td>
-</tr>
-<!--Проверка функционала удаления фильма из коллекции-->
-<!--До начала теста мы должны быть авторизованы, фильм должен быть в коллекции, начало теста на домашней странице-->
-<tr>
-	<td>clickAndWait</td>
-	<td>//a/div/div/div</td>
-	<td></td>
-</tr>
+<!--Переходим на домашнюю страницу-->
 <tr>
 	<td>click</td>
-	<td>css=img[alt=&quot;Remove&quot;]</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Убедились - появилась плашка с фильмом-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<!--Проверка функционала удаления фильма из коллекции-->
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@class='movie_box']/*[contains(text(),'Страшилка')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a[onclick *= 'delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a[onclick *= 'delete']</td>
 	<td></td>
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>assertConfirmation</td>
-	<td>Are you sure you want to remove this?</td>
+	<td>getConfirmation</td>
 	<td></td>
-</tr>
-<!--Вернулись на домашнюю страницу-->
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Home</td>
 	<td></td>
 </tr>
 <!--Убедились - фильмов в коллекции нет, обновили данные, проверили ещё раз-->
 <tr>
-	<td>assertNotElementIndex</td>
-	<td>//div[@id='results']/a/div</td>
+	<td>waitForElementPresent</td>
+	<td>xpath=//*[@id='content']//a[@href=&quot;./?go=imdbupdate&quot;]</td>
 	<td></td>
 </tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=img[alt=&quot;Update all&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertNotElementIndex</td>
-	<td>//div[@id='results']/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Home</td>
-	<td></td>
-</tr>
-<!--Уходим-->
 <tr>
 	<td>click</td>
-	<td>link=Log out</td>
+	<td>xpath=//*[@id='content']//a[@href=&quot;./?go=imdbupdate&quot;]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertConfirmation</td>
-	<td>Are you sure you want to log out?</td>
+	<td>waitForNotElementIndex</td>
+	<td>//div[@id='results']/a/div</td>
+	<td></td>
+</tr>
+<!--Проверка функционала выхода-->
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'profile')]</td>
+	<td></td>
+</tr>
+<!--Убедились - мы авторизованы под admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=result</td>
 	<td></td>
 </tr>
 </tbody></table>
