@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>cleanBD</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">cleanBD</td></tr>
+</thead><tbody>
+<!--Поехали уже, тестировать-->
+<tr>
+	<td>open</td>
+	<td>/php4dvd/</td>
+	<td></td>
+</tr>
+<!--Авторизация-->
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[3]/a</td>
+	<td></td>
+</tr>
+<!--Чистим базу  1-------------------------------------------------------------!!!-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Переходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Чистим базу 2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Переходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Чистим базу 3-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Переходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Чистим базу 4-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Переходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Чистим базу 5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Переходим на домашнюю страницу-->
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Чистим базу 6-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'go=delete')]</td>
+	<td></td>
+</tr>
+<!--Подтвердили что хотим удалить фильм-->
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Уходим-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=result</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

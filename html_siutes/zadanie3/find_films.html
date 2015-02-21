@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>Prepare</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Prepare</td></tr>
+</thead><tbody>
+<!--Объявляем переменняе-->
+<!--фильм 1-->
+<tr>
+	<td>store</td>
+	<td>Буратино</td>
+	<td>fTitle1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>По дрова</td>
+	<td>fAka1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2000</td>
+	<td>fYear1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Фантастика</td>
+	<td>fGenres1</td>
+</tr>
+<!--фильм 2-->
+<tr>
+	<td>store</td>
+	<td>Space</td>
+	<td>fTitle2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Космические дрова</td>
+	<td>fAka2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1990</td>
+	<td>fYear2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Фантастика</td>
+	<td>fGenres2</td>
+</tr>
+<!--фильм 3-->
+<tr>
+	<td>store</td>
+	<td>911 в дрова</td>
+	<td>fTitle3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>скорая помощь</td>
+	<td>fAka3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1995</td>
+	<td>fYear3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Сериал</td>
+	<td>fGenres3</td>
+</tr>
+<!--фильм 4-->
+<tr>
+	<td>store</td>
+	<td>Сказочка</td>
+	<td>fTitle4</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Сказание на скорую руку</td>
+	<td>fAka4</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1990</td>
+	<td>fYear4</td>
+</tr>
+<!--фильм 5-->
+<tr>
+	<td>store</td>
+	<td>Мультик</td>
+	<td>fTitle5</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>multic</td>
+	<td>fAka5</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1990</td>
+	<td>fYear5</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Мульт</td>
+	<td>fGenres5</td>
+</tr>
+<!--фильм 6-->
+<tr>
+	<td>store</td>
+	<td>Лунтик</td>
+	<td>fTitle6</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1995</td>
+	<td>fAka6</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>3000</td>
+	<td>fYear6</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Мульт</td>
+	<td>fGenres6</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>nl_NL</td>
+	<td>uLocale</td>
+</tr>
+<!--Поехали уже, тестировать-->
+<tr>
+	<td>open</td>
+	<td>/php4dvd/</td>
+	<td></td>
+</tr>
+<!--Вабрали язук приложения-->
+<tr>
+	<td>click</td>
+	<td>//a[contains(@href, '${uLocale}')]</td>
+	<td></td>
+</tr>
+<!--Авторизация-->
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[3]/a</td>
+	<td></td>
+</tr>
+<!--Набиваем базу фильмами-->
+<!--фильм 1-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>${fTitle1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=aka</td>
+	<td>${fAka1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=year</td>
+	<td>${fYear1}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=own_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=seen_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=genres</td>
+	<td>${fGenres1}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'submit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${fTitle1}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--фильм 2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>${fTitle2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=aka</td>
+	<td>${fAka2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=year</td>
+	<td>${fYear2}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=own_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=seen_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=genres</td>
+	<td>${fGenres2}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'submit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${fTitle2}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--фильм 3-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>${fTitle3}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=aka</td>
+	<td>${fAka3}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=year</td>
+	<td>${fYear3}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=own_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=seen_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=genres</td>
+	<td>${fGenres3}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'submit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${fTitle3}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--фильм 4-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>${fTitle4}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=aka</td>
+	<td>${fAka4}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=year</td>
+	<td>${fYear4}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=own_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=seen_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'submit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${fTitle4}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--фильм 5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>${fTitle5}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=aka</td>
+	<td>${fAka5}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=year</td>
+	<td>${fYear5}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=own_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=seen_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=genres</td>
+	<td>${fGenres5}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'submit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${fTitle5}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--фильм 6-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,'go=add')]</td>
+	<td></td>
+</tr>
+<!--Заполним поля формы-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>${fTitle6}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=aka</td>
+	<td>${fAka6}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=year</td>
+	<td>${fYear6}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=own_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=seen_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=genres</td>
+	<td>${fGenres6}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@onclick,'submit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//h2[contains(text(),'${fTitle6}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//nav//li[1]/a</td>
+	<td></td>
+</tr>
+<!--Поехали уже, тестировать-->
+<!--Кейс 1 - по части русского имени-->
+<!--Чистим строку поиска-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=q</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=q</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=q</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=q</td>
+	<td>тик</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=q</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[1]//div[contains(@class,'title')]</td>
+	<td>${fTitle6}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[2]//div[contains(@class,'title')]</td>
+	<td>${fTitle5}</td>
+</tr>
+<!--Меняем сортировку по алфавиту-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='sort-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='sort-menu']/li[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='sort-menu']/li[2]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[1]//div[contains(@class,'title')]</td>
+	<td>${fTitle5}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[2]//div[contains(@class,'title')]</td>
+	<td>${fTitle6}</td>
+</tr>
+<!--Возвращаем сортировку-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='sort-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='sort-menu']/li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='sort-menu']/li[1]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[1]//div[contains(@class,'title')]</td>
+	<td>${fTitle6}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[2]//div[contains(@class,'title')]</td>
+	<td>${fTitle5}</td>
+</tr>
+<!--Кейс 2 - по категориям-->
+<!--Чистим строку поиска-->
+<tr>
+	<td>type</td>
+	<td>id=q</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=q</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Меняем категорию-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-menu']/li[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='category-menu']/li[2]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[1]//div[contains(@class,'title')]</td>
+	<td>${fTitle6}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[2]//div[contains(@class,'title')]</td>
+	<td>${fTitle5}</td>
+</tr>
+<!--Меняем категорию-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-menu']/li[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='category-menu']/li[3]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[1]//div[contains(@class,'title')]</td>
+	<td>${fTitle3}</td>
+</tr>
+<!--Возвращаем все категории-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-menu']/li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='category-menu']/li[1]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>xpath=//*[@id='results']/*/div</td>
+	<td>6</td>
+</tr>
+<!--Кейс 3 - количество фильмов на странице-->
+<!--Чистим строку поиска-->
+<tr>
+	<td>type</td>
+	<td>id=q</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=q</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Меняем количество элементов на странице на 4-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='n-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='n-menu']/li[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='n-menu']/li[2]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>verifyXpathCount</td>
+	<td>//*[@class='pager']/*</td>
+	<td>2</td>
+</tr>
+<!--Возвращаем значение по умолчанию-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='n-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='n-menu']/li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='n-menu']/li[1]</td>
+	<td></td>
+</tr>
+<!--Проверяем результат-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForXpathCount</td>
+	<td>//div[@id='results']/a</td>
+	<td>6</td>
+</tr>
+<!--Уходим-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href,&quot;logout&quot;)]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=result</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

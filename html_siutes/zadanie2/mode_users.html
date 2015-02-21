@@ -46,7 +46,7 @@
 </tr>
 <!--Вабрали язук приложения-->
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>//a[contains(@href, '${uLocale}')]</td>
 	<td></td>
 </tr>
@@ -61,13 +61,23 @@
 	<td>admin</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>name=submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>waitForElementPresent</td>
 	<td>//li[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
 	<td></td>
 </tr>
 <!--Добавляем пользователя, с правами редаетор-->
@@ -204,8 +214,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>//a[contains(@href, './?lang=en_US')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//td[contains(text(),'User name')]</td>
 	<td></td>
 </tr>
 </tbody></table>
