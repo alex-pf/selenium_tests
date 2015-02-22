@@ -17,6 +17,7 @@
 	<td>http://plodorod2.ru</td>
 	<td></td>
 </tr>
+<!--Шаг1 -------------------- test1 отправляет письмо test2 --------------------------------->
 <!--Зашли под test1-->
 <tr>
 	<td>type</td>
@@ -29,16 +30,26 @@
 	<td>test1</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Написать сообщение</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']</td>
 	<td></td>
 </tr>
 <!--Пишем сообщение для test2-->
+<tr>
+	<td>click</td>
+	<td>//a[contains(@href, '/?q=messages/new')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=privatemsg-new</td>
+	<td></td>
+</tr>
 <tr>
 	<td>type</td>
 	<td>id=edit-recipient</td>
@@ -62,20 +73,26 @@
 	<td>Приветствую тебя, брат мой, робот!</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>//h1</td>
-	<td>${T}</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Выйти</td>
+	<td>waitForElementPresent</td>
+	<td>//h1[contains(text(),'${T}')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(@href, '/?q=user/logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='user-login-form']</td>
+	<td></td>
+</tr>
+<!--Шаг2 -------------------- test2 получает сообщение от test1 --------------------------------->
 <!--Зашли под test2-->
 <tr>
 	<td>type</td>
@@ -88,21 +105,31 @@
 	<td>test2</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']</td>
 	<td></td>
 </tr>
 <!--Перешли к сообщениям-->
 <tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='block-privatemsg-privatemsg-menu']/div/div/ul/li[2]/a</td>
+	<td>click</td>
+	<td>xpath=//div[@id='block-privatemsg-privatemsg-menu']//*[@class=&quot;last&quot;]/a</td>
+	<td>id=block-privatemsg-privatemsg-menu</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=privatemsg-list-form</td>
 	<td></td>
 </tr>
 <!--Убедились, что есть новое-->
 <tr>
-	<td>assertText</td>
-	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/span</td>
-	<td>новое</td>
+	<td>assertElementPresent</td>
+	<td>css=span.marker</td>
+	<td></td>
 </tr>
 <!--Убедились, что заголовок сообщения = Т-->
 <tr>
@@ -111,15 +138,16 @@
 	<td>${T}</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/a</td>
+	<td>click</td>
+	<td>//a[contains(text(),'${T}')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>//h1</td>
-	<td>${T}</td>
+	<td>waitForElementPresent</td>
+	<td>//h1[contains(text(),'${T}')]</td>
+	<td></td>
 </tr>
+<!--Шаг3 -------------------- test2 отправляет письмо test1 --------------------------------->
 <!--Поместили в Т2 текущее время-->
 <tr>
 	<td>store</td>
@@ -134,15 +162,26 @@
 </tr>
 <!--Отправили-->
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Выйти</td>
+	<td>waitForElementPresent</td>
+	<td>xpath=//div[contains(@id,'privatemsg')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(@href, '/?q=user/logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='user-login-form']</td>
+	<td></td>
+</tr>
+<!--Шаг4 -------------------- test1 получает сообщение от test2 --------------------------------->
 <!--Зашли под test1-->
 <tr>
 	<td>type</td>
@@ -155,48 +194,57 @@
 	<td>test1</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']</td>
 	<td></td>
 </tr>
 <!--Перешли к сообщениям-->
 <tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='block-privatemsg-privatemsg-menu']/div/div/ul/li[2]/a</td>
+	<td>click</td>
+	<td>xpath=//div[@id='block-privatemsg-privatemsg-menu']//*[@class=&quot;last&quot;]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=privatemsg-list-form</td>
 	<td></td>
 </tr>
 <!--Убедились, что есть новое-->
 <tr>
-	<td>assertText</td>
-	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/span</td>
-	<td>новое</td>
+	<td>assertElementPresent</td>
+	<td>css=span.marker</td>
+	<td></td>
 </tr>
-<!--Пишем ответное сообщение, содержащее Т2-->
+<!--Убедились, что заголовок сообщения = Т1 (test2 ответил на письмо. по этому тема не изменилась)-->
 <tr>
-	<td>assertText</td>
-	<td>//td[2]/a</td>
-	<td>${T}</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='privatemsg-list-form']/table[2]/tbody/tr/td[2]/a</td>
+	<td>click</td>
+	<td>xpath=//a[contains(text(),'${T}')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>//h1</td>
-	<td>${T}</td>
+	<td>waitForElementPresent</td>
+	<td>//h1[contains(text(),'${T}')]</td>
+	<td></td>
 </tr>
-<!--Убедились, что текст сообщения соответствует отправленному-->
 <tr>
-	<td>assertText</td>
-	<td>//div[3]/div[2]/div[2]/p</td>
-	<td>И я тебя приветствую в ${T2}</td>
+	<td>waitForElementPresent</td>
+	<td>//*[contains(text(),'И я тебя приветствую в ${T2}')]</td>
+	<td></td>
 </tr>
 <!--Ушли-->
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Выйти</td>
+	<td>click</td>
+	<td>//a[contains(@href, '/?q=user/logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='user-login-form']</td>
 	<td></td>
 </tr>
 </tbody></table>

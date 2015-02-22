@@ -11,12 +11,12 @@
 <thead>
 <tr><td rowspan="1" colspan="3">p2 Редактирование профиля</td></tr>
 </thead><tbody>
-<!--Редактируем профиль пользователя-->
 <tr>
 	<td>open</td>
 	<td>http://plodorod2.ru</td>
 	<td></td>
 </tr>
+<!--Авторизация-->
 <tr>
 	<td>type</td>
 	<td>id=edit-name</td>
@@ -28,18 +28,34 @@
 	<td>test1</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Моя учетная запись</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']</td>
+	<td></td>
+</tr>
+<!--Редактируем профиль пользователя-->
+<tr>
+	<td>click</td>
+	<td>//*[@id='header']//a[contains(@href, '/?q=user')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Редактировать</td>
+	<td>waitForElementPresent</td>
+	<td>xpath=//*[@id='tabs-wrapper']//li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@id='tabs-wrapper']//li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-account</td>
 	<td></td>
 </tr>
 <tr>
@@ -49,29 +65,50 @@
 </tr>
 <!--Меняем номер дома-->
 <tr>
+	<td>storeValue</td>
+	<td>id=edit-field-addres-und-0-value</td>
+	<td>uAddres</td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>id=edit-field-addres-und-0-value</td>
 	<td>Исакиевская 202</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Просмотр</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='edit-account']</td>
 	<td></td>
 </tr>
-<!--Проверяем, сто номер дома изменился-->
+<!--Проверяем, что номер дома изменился-->
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@id='tabs-wrapper']//li[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div[2]/div</td>
+	<td></td>
+</tr>
 <tr>
 	<td>assertText</td>
 	<td>//div[@id='block-system-main']/div/div/div/div[2]/div</td>
 	<td>Исакиевская 202</td>
 </tr>
+<!--Возвращаем старый номер дома-->
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Редактировать</td>
+	<td>click</td>
+	<td>xpath=//*[@id='tabs-wrapper']//li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-account</td>
 	<td></td>
 </tr>
 <tr>
@@ -79,34 +116,48 @@
 	<td>//div[@id='field-addres-add-more-wrapper']/div/label</td>
 	<td></td>
 </tr>
-<!--Возвращаем старый номер дома-->
 <tr>
 	<td>type</td>
 	<td>id=edit-field-addres-und-0-value</td>
-	<td>Исакиевская 2</td>
+	<td>${uAddres}</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Просмотр</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='edit-account']</td>
+	<td></td>
+</tr>
+<!--Проверяем, что номер дома изменился-->
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@id='tabs-wrapper']//li[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div[2]/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
 	<td>//div[@id='block-system-main']/div/div/div/div[2]/div</td>
-	<td>Исакиевская 2</td>
+	<td>${uAddres}</td>
 </tr>
 <!--Уходим-->
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Выйти</td>
+	<td>click</td>
+	<td>//a[contains(@href, '/?q=user/logout')]</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='user-login-form']</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>

@@ -16,6 +16,7 @@
 	<td>http://plodorod2.ru</td>
 	<td></td>
 </tr>
+<!--Авторизация-->
 <tr>
 	<td>type</td>
 	<td>id=edit-name</td>
@@ -27,26 +28,37 @@
 	<td>test1</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Моя учетная запись</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='block-privatemsg-privatemsg-menu']</td>
+	<td></td>
+</tr>
+<!--Проверяем, что пользователь правильный-->
+<tr>
+	<td>click</td>
+	<td>xpath=//a[contains(@href, '/?q=user')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>//h1</td>
-	<td>test1</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Выйти</td>
+	<td>waitForElementPresent</td>
+	<td>//h1[contains(text(),'test1')]</td>
 	<td></td>
 </tr>
-
+<!--Выход-->
+<tr>
+	<td>click</td>
+	<td>//a[contains(@href, '/?q=user/logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='user-login-form']</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>
