@@ -21,6 +21,8 @@ public class ModeEditorUser extends ru.st.selenium.pages.TestBase {
     String uMail = "editorUser@mail.ru";
     String uRole = "Editor";
     String uLocale = "en_US";
+    String outMes = "Are you sure you want to log out?";
+    String killMes = "Are you sure you want to remove this?";
     // Проверка функционала добавления, редактирования, удаления пользователей.
     // Авторизация
     driver.get(baseUrl + "/php4dvd/");
@@ -45,7 +47,12 @@ public class ModeEditorUser extends ru.st.selenium.pages.TestBase {
     }
 
     // Добавляем пользователя, с правами редаетор
-    assertFalse(isElementPresent(By.xpath("//a[contains(text(),'" + uMail + "')]")));
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (!isElementPresent(By.xpath("//a[contains(text(),'" + uMail + "')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
     driver.findElement(By.id("username")).clear();
     driver.findElement(By.id("username")).sendKeys(uName);
     driver.findElement(By.name("email")).clear();
@@ -102,6 +109,13 @@ public class ModeEditorUser extends ru.st.selenium.pages.TestBase {
     }
 
     driver.findElement(By.xpath("//a[contains(text(),'" + uMail + "')]/../../td[6]/a")).click();
+    assertEquals(killMes, closeAlertAndGetItsText());
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//a[contains(text(),'admin')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if (!isElementPresent(By.xpath("//a[contains(text(),'" + uMail + "')]"))) break; } catch (Exception e) {}
@@ -116,19 +130,14 @@ public class ModeEditorUser extends ru.st.selenium.pages.TestBase {
     }
 
     driver.findElement(By.xpath("//a[contains(@href,\"logout\")]")).click();
+    assertEquals(outMes, closeAlertAndGetItsText());
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (!isElementPresent(By.id("result"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//form[@id='loginform']"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
     driver.findElement(By.xpath("//a[contains(@href, './?lang=en_US')]")).click();
-    for (int second = 0;; second++) {
-    	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.xpath("//td[contains(text(),'User name')]"))) break; } catch (Exception e) {}
-    	Thread.sleep(1000);
-    }
-
     driver.quit();
   }
 

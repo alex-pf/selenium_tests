@@ -4,12 +4,7 @@
 	<test name="Test_1">
 		<parameter name="path" value="/"/>
 		<classes>
-		    <class name="ru.st.selenium.LoginAddDvdRmDvdLogout"/>
-		    <class name="ru.st.selenium.AddAndRmNewDvd"/>
-		    <class name="ru.st.selenium.ModeEditorUser"/>
-		    <class name="ru.st.selenium.ModeGuestUser"/>
 		    <class name="ru.st.selenium.FindFilms"/>
-		    <class name="ru.st.selenium.CleanBD"/>
 		</classes>
 	</test>  
 </suite>

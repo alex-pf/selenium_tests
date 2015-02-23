@@ -19,8 +19,10 @@ public class ModeGuestUser extends ru.st.selenium.pages.TestBase {
     String uName = "GuestUser";
     String uPass = "GuestUser";
     String uMail = "GuestUser@mail.ru";
-    String Guest = "Editor";
+    String uRole = "Gast (alleen kijken)";
     String uLocale = "nl_NL";
+    String outMes = "Weet je zeker dat je wilt uitloggen?";
+    String killMes = "Weet u zeker dat u dit wilt verwijderen?";
     // Проверка функционала добавления, редактирования, удаления пользователей.
     // Авторизация
     driver.get(baseUrl + "/php4dvd/");
@@ -102,6 +104,7 @@ public class ModeGuestUser extends ru.st.selenium.pages.TestBase {
     }
 
     driver.findElement(By.xpath("//a[contains(text(),'" + uMail + "')]/../../td[6]/a")).click();
+    assertEquals(killMes, closeAlertAndGetItsText());
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if (!isElementPresent(By.xpath("//a[contains(text(),'" + uMail + "')]"))) break; } catch (Exception e) {}
@@ -116,9 +119,10 @@ public class ModeGuestUser extends ru.st.selenium.pages.TestBase {
     }
 
     driver.findElement(By.xpath("//a[contains(@href,\"logout\")]")).click();
+    assertEquals(outMes, closeAlertAndGetItsText());
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (!isElementPresent(By.id("result"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//form[@id='loginform']"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 

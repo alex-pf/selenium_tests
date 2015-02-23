@@ -97,10 +97,11 @@ public class LoginAddDvdRmDvdLogout extends ru.st.selenium.pages.TestBase {
 
     driver.findElement(By.cssSelector("a[onclick *= 'delete']")).click();
     // Подтвердили что хотим удалить фильм
+    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
     // Убедились - фильмов в коллекции нет, обновили данные, проверили ещё раз
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.xpath("//*[@id='content']//a[@href=\"./?go=imdbupdate\"]"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/div"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -116,9 +117,10 @@ public class LoginAddDvdRmDvdLogout extends ru.st.selenium.pages.TestBase {
     }
 
     driver.findElement(By.xpath("//a[contains(@href,\"logout\")]")).click();
+    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (!isElementPresent(By.id("result"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//form[@id='loginform']"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 

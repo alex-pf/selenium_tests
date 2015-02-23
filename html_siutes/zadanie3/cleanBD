@@ -19,6 +19,11 @@
 </tr>
 <!--Авторизация-->
 <tr>
+	<td>click</td>
+	<td>//a[contains(@href, 'en_US')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>id=username</td>
 	<td>admin</td>
@@ -61,8 +66,8 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Переходим на домашнюю страницу-->
@@ -94,8 +99,8 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Переходим на домашнюю страницу-->
@@ -127,8 +132,8 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Переходим на домашнюю страницу-->
@@ -160,8 +165,8 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Переходим на домашнюю страницу-->
@@ -193,8 +198,8 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Переходим на домашнюю страницу-->
@@ -226,8 +231,8 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Уходим-->
@@ -242,16 +247,15 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to log out?</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>id=result</td>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='loginform']</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

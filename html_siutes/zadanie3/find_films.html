@@ -138,6 +138,11 @@
 	<td>nl_NL</td>
 	<td>uLocale</td>
 </tr>
+<tr>
+	<td>store</td>
+	<td>Weet je zeker dat je wilt uitloggen?</td>
+	<td>outMes</td>
+</tr>
 <!--Поехали уже, тестировать-->
 <tr>
 	<td>open</td>
@@ -570,7 +575,7 @@
 <!--Проверяем результат-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=results</td>
+	<td>//div[@id='results']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -607,7 +612,7 @@
 <!--Проверяем результат-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=results</td>
+	<td>//div[@id='results']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -644,7 +649,7 @@
 <!--Проверяем результат-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=results</td>
+	<td>//div[@id='results']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -693,7 +698,7 @@
 <!--Проверяем результат-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=results</td>
+	<td>//div[@id='results']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -730,7 +735,7 @@
 <!--Проверяем результат-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=results</td>
+	<td>//div[@id='results']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -762,7 +767,7 @@
 <!--Проверяем результат-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=results</td>
+	<td>//div[@id='results']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -853,13 +858,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>${outMes}</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>id=result</td>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='loginform']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(@href, './?lang=en_US')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//td[contains(text(),'User name')]</td>
 	<td></td>
 </tr>
 </tbody></table>

@@ -37,6 +37,16 @@
 	<td>en_US</td>
 	<td>uLocale</td>
 </tr>
+<tr>
+	<td>store</td>
+	<td>Are you sure you want to log out?</td>
+	<td>outMes</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Are you sure you want to remove this?</td>
+	<td>killMes</td>
+</tr>
 <!--Проверка функционала добавления, редактирования, удаления пользователей.-->
 <!--Авторизация-->
 <tr>
@@ -82,9 +92,9 @@
 </tr>
 <!--Добавляем пользователя, с правами редаетор-->
 <tr>
-	<td>assertElementNotPresent</td>
+	<td>waitForElementNotPresent</td>
 	<td>xpath=//a[contains(text(),'${uMail}')]</td>
-	<td></td>
+	<td>3</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -183,8 +193,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
+	<td>assertConfirmation</td>
+	<td>${killMes}</td>
 	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'admin')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -204,23 +219,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>${outMes}</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>id=result</td>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='loginform']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>//a[contains(@href, './?lang=en_US')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>xpath=//td[contains(text(),'User name')]</td>
 	<td></td>
 </tr>
 </tbody></table>

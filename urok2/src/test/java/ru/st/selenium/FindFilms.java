@@ -46,6 +46,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     String fYear6 = "3000";
     String fGenres6 = "Мульт";
     String uLocale = "nl_NL";
+    String outMes = "Weet je zeker dat je wilt uitloggen?";
     // Поехали уже, тестировать
     driver.get(baseUrl + "/php4dvd/");
     // Вабрали язук приложения
@@ -277,7 +278,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     // Проверяем результат
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.id("results"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/a"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -296,7 +297,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     // Проверяем результат
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.id("results"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/a"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -315,7 +316,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     // Проверяем результат
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.id("results"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/a"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -339,7 +340,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     // Проверяем результат
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.id("results"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/a"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -358,7 +359,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     // Проверяем результат
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.id("results"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/a"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -376,7 +377,7 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     // Проверяем результат
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.id("results"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//div[@id='results']/a"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
@@ -438,9 +439,17 @@ public class FindFilms extends ru.st.selenium.pages.TestBase {
     }
 
     driver.findElement(By.xpath("//a[contains(@href,\"logout\")]")).click();
+    assertEquals(outMes, closeAlertAndGetItsText());
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if (!isElementPresent(By.id("result"))) break; } catch (Exception e) {}
+    	try { if (isElementPresent(By.xpath("//form[@id='loginform']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//a[contains(@href, './?lang=en_US')]")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//td[contains(text(),'User name')]"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 

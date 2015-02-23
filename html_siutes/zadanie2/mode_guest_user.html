@@ -29,13 +29,23 @@
 </tr>
 <tr>
 	<td>store</td>
-	<td>Editor</td>
-	<td>Guest</td>
+	<td>Gast (alleen kijken)</td>
+	<td>uRole</td>
 </tr>
 <tr>
 	<td>store</td>
 	<td>nl_NL</td>
 	<td>uLocale</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Weet je zeker dat je wilt uitloggen?</td>
+	<td>outMes</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Weet u zeker dat u dit wilt verwijderen?</td>
+	<td>killMes</td>
 </tr>
 <!--Проверка функционала добавления, редактирования, удаления пользователей.-->
 <!--Авторизация-->
@@ -82,7 +92,7 @@
 </tr>
 <!--Добавляем пользователя, с правами редаетор-->
 <tr>
-	<td>assertElementNotPresent</td>
+	<td>waitForElementNotPresent</td>
 	<td>xpath=//a[contains(text(),'${uMail}')]</td>
 	<td></td>
 </tr>
@@ -183,8 +193,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
+	<td>assertConfirmation</td>
+	<td>${killMes}</td>
 	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'admin')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -204,13 +219,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>${outMes}</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>id=result</td>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='loginform']</td>
 	<td></td>
 </tr>
 <tr>

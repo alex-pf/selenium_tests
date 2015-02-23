@@ -135,14 +135,14 @@
 </tr>
 <!--Подтвердили что хотим удалить фильм-->
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to remove this?</td>
 	<td></td>
 </tr>
 <!--Убедились - фильмов в коллекции нет, обновили данные, проверили ещё раз-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//*[@id='content']//a[@href=&quot;./?go=imdbupdate&quot;]</td>
+	<td>//div[@id='results']/div</td>
 	<td></td>
 </tr>
 <tr>
@@ -173,13 +173,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>getConfirmation</td>
-	<td></td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to log out?</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>id=result</td>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='loginform']</td>
 	<td></td>
 </tr>
 </tbody></table>
