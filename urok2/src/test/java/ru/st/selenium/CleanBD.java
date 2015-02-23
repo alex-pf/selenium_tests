@@ -30,6 +30,19 @@ public class CleanBD extends ru.st.selenium.pages.TestBase {
     	Thread.sleep(1000);
     }
 
+    // Возвращаем в норму сортировки
+    // Возвращаем сортировку по алфавиту
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseDown | //*[@id='sort-button']/span[2] | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseDown | //*[@id='sort-menu']/li[1] | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseUp | //*[@id='sort-menu']/li[1] | ]]
+    // Возвращаем все категории
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseDown | //*[@id='category-button']/span[2] | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseDown | //*[@id='category-menu']/li[1] | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseUp | //*[@id='category-menu']/li[1] | ]]
+    // Возвращаем значение по умолчанию - "все результаты на одной странице"
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseDown | //*[@id='n-button']/span[2] | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseDown | //*[@id='n-menu']/li[1] | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [mouseUp | //*[@id='n-menu']/li[1] | ]]
     // Чистим базу  1-------------------------------------------------------------!!!
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");

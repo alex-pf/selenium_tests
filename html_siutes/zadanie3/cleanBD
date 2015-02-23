@@ -43,6 +43,55 @@
 	<td>//li[3]/a</td>
 	<td></td>
 </tr>
+<!--Возвращаем в норму сортировки-->
+<!--Возвращаем сортировку по алфавиту-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='sort-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='sort-menu']/li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='sort-menu']/li[1]</td>
+	<td></td>
+</tr>
+<!--Возвращаем все категории-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='category-menu']/li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='category-menu']/li[1]</td>
+	<td></td>
+</tr>
+<!--Возвращаем значение по умолчанию - "все результаты на одной странице"-->
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='n-button']/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//*[@id='n-menu']/li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseUp</td>
+	<td>//*[@id='n-menu']/li[1]</td>
+	<td></td>
+</tr>
 <!--Чистим базу  1-------------------------------------------------------------!!!-->
 <tr>
 	<td>waitForElementPresent</td>
