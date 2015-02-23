@@ -15,16 +15,28 @@ public class AddAndRmNewDvd extends ru.st.selenium.pages.TestBase {
   private StringBuffer verificationErrors = new StringBuffer();
 
   @Test
-  public void testAddAndRmNewDvd() throws Exception {    driver.get("http://192.168.2.1/php4dvd/");
+  public void testAddAndRmNewDvd() throws Exception {    // Простая проверка авторизации
+    driver.get(baseUrl + "php4dvd");
     driver.findElement(By.id("username")).clear();
     driver.findElement(By.id("username")).sendKeys("admin");
     driver.findElement(By.name("password")).clear();
     driver.findElement(By.name("password")).sendKeys("admin");
     driver.findElement(By.name("submit")).click();
     // Проверка функционала добавления фильма в коллекцию
-    // К началу теста мы должны быть авторизованы и на домашней странице
-    driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//a[contains(@href,'go=add')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//a[contains(@href,'go=add')]")).click();
     // Заполним поля формы
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.name("name"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Страшилка");
     driver.findElement(By.name("aka")).clear();
@@ -43,28 +55,56 @@ public class AddAndRmNewDvd extends ru.st.selenium.pages.TestBase {
     driver.findElement(By.name("country")).sendKeys("russia");
     // Сохраним фильм
     driver.findElement(By.id("submit")).click();
-    // Убедимся, что фильм сохранился
-    assertEquals("Страшилка (5014)", driver.findElement(By.cssSelector("h2")).getText());
-    driver.findElement(By.linkText("Home")).click();
-    // Убедимся, что фильм виден на главной странице
-    assertTrue(isElementPresent(By.xpath("//div[@id='results']/a/div")));
-    assertEquals("Страшилка", driver.findElement(By.xpath("//a/div/div[2]")).getText());
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//h2[contains(text(),'Страшилка (5014)')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    // Переходим на домашнюю страницу
+    driver.findElement(By.xpath("//nav//li[1]/a")).click();
+    // Убедились - появилась плашка с фильмом
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.cssSelector("div.title"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
     // Проверка функционала удаления фильма из коллекции
-    // До начала теста мы должны быть авторизованы, фильм должен быть в коллекции, начало теста на домашней странице
-    driver.findElement(By.xpath("//a/div/div/div")).click();
-    driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
+    driver.findElement(By.xpath("//*[@class='movie_box']/*[contains(text(),'Страшилка')]")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.cssSelector("a[onclick *= 'delete']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.cssSelector("a[onclick *= 'delete']")).click();
     // Подтвердили что хотим удалить фильм
-    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
-    // Вернулись на домашнюю страницу
-    driver.findElement(By.linkText("Home")).click();
     // Убедились - фильмов в коллекции нет, обновили данные, проверили ещё раз
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//*[@id='content']//a[@href=\"./?go=imdbupdate\"]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//*[@id='content']//a[@href=\"./?go=imdbupdate\"]")).click();
     // ERROR: Caught exception [ERROR: Unsupported command [getElementIndex | //div[@id='results']/a/div | ]]
-    driver.findElement(By.cssSelector("img[alt=\"Update all\"]")).click();
-    // ERROR: Caught exception [ERROR: Unsupported command [getElementIndex | //div[@id='results']/a/div | ]]
-    driver.findElement(By.linkText("Home")).click();
-    // Уходим
-    driver.findElement(By.linkText("Log out")).click();
-    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
+    // Проверка функционала выхода
+    driver.findElement(By.xpath("//a[contains(@href,'profile')]")).click();
+    // Убедились - мы авторизованы под admin
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//h2[contains(text(),'admin')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//a[contains(@href,\"logout\")]")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (!isElementPresent(By.id("result"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
     driver.quit();
   }
 

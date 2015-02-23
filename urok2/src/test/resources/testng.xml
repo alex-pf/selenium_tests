@@ -6,11 +6,10 @@
 		<classes>
 		    <class name="ru.st.selenium.LoginAddDvdRmDvdLogout"/>
 		    <class name="ru.st.selenium.AddAndRmNewDvd"/>
-		    <class name="ru.st.selenium.ModeUsers"/>
-		    <class name="ru.st.selenium.Prepare"/>
-		    <class name="ru.st.selenium.Search"/>
-		    <class name="ru.st.selenium.Trimming"/>
-		    <class name="ru.st.selenium.SearchInImdb"/>
+		    <class name="ru.st.selenium.ModeEditorUser"/>
+		    <class name="ru.st.selenium.ModeGuestUser"/>
+		    <class name="ru.st.selenium.FindFilms"/>
+		    <class name="ru.st.selenium.CleanBD"/>
 		</classes>
 	</test>  
 </suite>
